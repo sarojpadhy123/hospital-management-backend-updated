@@ -2,7 +2,6 @@ const { Schema, default:mongoose} = require('mongoose')
 
 const PatientSchema = new Schema({
     name: String,
-    cause:String,
     email: String,
     address: String,
     phone: String,

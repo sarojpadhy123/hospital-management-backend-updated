@@ -28,10 +28,10 @@ const paymentsController = new CrudService(Payments, PaymentsValidator)
 // CREATE_PATIENTS
 router.post('/patient',async function(req, res, next) {
     try {
-        const {name,cause, email, address, phone, sex, dob, age, bloodgroup, tor} = req.body
+        const {name, email, address, phone, sex, dob, age, bloodgroup, tor} = req.body
         const date = new Date();
         const registrationId = date.getFullYear() + "-" + randomBytes(2).toString("hex")
-        await PatientController.create({name,cause, email, address, phone, sex, dob, age, bloodgroup, tor, registrationId})
+        await PatientController.create({name, email, address, phone, sex, dob, age, bloodgroup, tor, registrationId})
         return res.status(200).send('Added Successfully')
     } catch (error) {
         return res.status(401).send(error.message)
@@ -50,9 +50,9 @@ router.get('/patient', async function(req, res, next) {
 // UPDATE_PATIENT
 router.put('/patient/:id', async function(req, res, next) {
     try {
-        const{ name,cause, email, address, phone, sex, dob, age, bloodgroup, tor, registrationId } = req.body
+        const{ name, email, address, phone, sex, dob, age, bloodgroup, tor, registrationId } = req.body
         const id = req.params.id
-        await PatientController.update(id,{name,cause, email, address, phone, sex, dob, age, bloodgroup, tor, registrationId })
+        await PatientController.update(id,{name, email, address, phone, sex, dob, age, bloodgroup, tor, registrationId })
         return res.status(200).send('Updated Successfully')
     } catch (error) {
         return res.send(error)
