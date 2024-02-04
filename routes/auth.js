@@ -17,7 +17,7 @@ router.post('/login',async function(req, res, next) {
         res.status(401).send("Invalid Credentials")
     }else{
         const{_id, name,email,role,department,address,phone,password} = user
-        jwt.sign({_id, name,email,role,department,address,phone,password}, process.env.JWT_SECRET, {
+        jwt.sign({_id, name,email,role,department,address,phone,password},"yritybkrhkjfnjsdfjnfsjghf", {
             expiresIn: '365d'
         }, function(err, token){
             if(err){

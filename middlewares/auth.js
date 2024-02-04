@@ -6,8 +6,8 @@ const jwt = require('jsonwebtoken')
 async function auth(req,res,next){
     try {
         const token = req.header('x-auth-token')
-      console.log(token)
-        const decode = jwt.verify(token, process.env.JWT_SECRET)
+    //   console.log(token)
+        const decode = jwt.verify(token, "yritybkrhkjfnjsdfjnfsjghf")
      
         const staff = await Staffs.findOne({_id: decode._id})   
         req.staff = staff
